@@ -1,17 +1,33 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+@extends("layouts.app")
+@section("content")
+        <!-- Dashboard Widgets -->
+        <div class="container mx-auto mt-10">
+            <div class="flex flex-wrap -mx-4 mt-3">
+                <!-- Students Widget -->
+                <div class="w-50 md:w-1/2 lg:w-1/3 px-4">
+                    <div class="dashboard-widget">
+                        <div class="dashboard-widget-header">
+                            <h2 class="text-xl font-semibold">Gestion des Étudiants</h2>
+                        </div>
+                        <div class="dashboard-widget-content">
+                            <!-- Content specific to student management goes here -->
+                            <a href="{{ route('etudiants.index') }}" class="btn btn-primary">Voir les étudiants</a>
+                        </div>
+                    </div>
+                </div>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("You're logged in!") }}
+                <!-- Branches Widget -->
+                <div class="w-50 md:w-1/2 lg:w-1/3 px-4">
+                    <div class="dashboard-widget">
+                        <div class="dashboard-widget-header bg-green-500">
+                            <h2 class="text-xl font-semibold">Gestion des Filères</h2>
+                        </div>
+                        <div class="dashboard-widget-content">
+                            <!-- Content specific to branch (filière) management goes here -->
+                            <a href="{{ route('filieres.index') }}" class="btn btn-success">Voir les filières</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</x-app-layout>
+@endsection
